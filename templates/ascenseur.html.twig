@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <audio autoplay >
+        <source src="Son/{{ ascenseur.etat }}.mp3" type="audio/mp3" />
+    </audio>
+
+    {% form_theme form3 'bootstrap_3_layout.html.twig' %}
+
+    <div class="row">
+        <div class="offset-5 col-md-1">
+            {{ form_start(form3) }}
+            {{ form_row(form3.name, {'attr': {'value': '3', 'class': 'form-control input-lg' }}) }}
+            {{ form_end(form3) }}
+        </div>
+        <div class="col-md-1">
+            {% if ascenseur.ledLvl3  %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe2.png') }}"
+                         alt="lampe">
+                </div>
+            {% else %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe1.png') }}"
+                         alt="lampe">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-5 col-md-1">
+            {{ form_start(form2) }}
+            {{ form_row(form2.name, {'attr': {'value': '2'}}) }}
+            {{ form_end(form2) }}
+        </div>
+        <div class="col-md-1">
+            {% if ascenseur.ledLvl2  %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe2.png') }}"
+                         alt="lampe">
+                </div>
+            {% else %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe1.png') }}"
+                         alt="lampe">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-5 col-md-1">
+            {{ form_start(form1) }}
+            {{ form_row(form1.name, {'attr': {'value': '1'}}) }}
+            {{ form_end(form1) }}
+        </div>
+        <div class=col-md-1">
+            {% if ascenseur.ledLvl1  %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe2.png') }}"
+                         alt="lampe">
+                </div>
+            {% else %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe1.png') }}"
+                         alt="lampe">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-5 col-md-1">
+            {{ form_start(form0) }}
+            {{ form_row(form0.name, {'attr': {'value': '0'}}) }}
+            {{ form_end(form0) }}
+        </div>
+        <div class="col-md-1">
+            {% if ascenseur.ledLvl0  %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe2.png') }}"
+                         alt="lampe">
+                </div>
+            {% else %}
+                <div>
+                    <img style="height: 30px; width: 20px"  src="{{ asset('lampe1.png') }}"
+                         alt="lampe">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-3" style="border: solid 3px black; height: 30px; width: 70px "><p style="text-align: center">{{
+                ascenseur
+                .affichage }}</p></div>
+    </div>
+
+{% endblock %}
